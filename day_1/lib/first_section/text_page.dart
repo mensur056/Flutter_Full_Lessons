@@ -9,7 +9,7 @@ class TextPageLearn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             MyText(title1),

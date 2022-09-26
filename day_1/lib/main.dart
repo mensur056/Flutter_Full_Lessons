@@ -1,4 +1,4 @@
-import 'package:day_1/first_section/images_page.dart';
+import 'package:day_1/first_section/container_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const ImagesPageLearn(),
+      home: const ContainerLearn(),
     );
   }
 }
