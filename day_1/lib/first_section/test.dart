@@ -1,15 +1,23 @@
-import 'package:day_1/first_section/shared/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
-class TestAppp extends StatelessWidget {
-  const TestAppp({Key? key}) : super(key: key);
+class TestAppp extends StatefulWidget {
+  const TestAppp({
+    Key? key,
+  }) : super(key: key);
 
   @override
+  State<TestAppp> createState() => _TestApppState();
+}
+
+class _TestApppState extends State<TestAppp> {
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(
-        icon: Icon(Icons.remove),
-        title: 'test',
+    return Scaffold(
+      appBar: AppBar(
+        title: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.add),
+        ),
       ),
     );
   }
