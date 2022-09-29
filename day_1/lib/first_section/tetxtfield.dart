@@ -6,7 +6,13 @@ class TextFiledLearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back_rounded)),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
