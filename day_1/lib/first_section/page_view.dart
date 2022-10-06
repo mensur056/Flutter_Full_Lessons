@@ -1,6 +1,6 @@
 import 'package:day_1/first_section/button.dart';
 import 'package:day_1/first_section/card.dart';
-import 'package:day_1/first_section/const/duration.dart';
+import 'package:day_1/const/duration.dart';
 import 'package:day_1/first_section/package.dart';
 import 'package:flutter/material.dart';
 

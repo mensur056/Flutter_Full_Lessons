@@ -1,4 +1,4 @@
-import 'package:day_1/first_section/const/color.dart';
+import 'package:day_1/const/color.dart';
 import 'package:flutter/material.dart';
 
 class MyButtonStyle {

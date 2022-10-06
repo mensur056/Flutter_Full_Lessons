@@ -1,6 +1,6 @@
-import 'package:day_1/first_section/const/button_style.dart';
-import 'package:day_1/first_section/const/padding.dart';
-import 'package:day_1/first_section/const/strings.dart';
+import 'package:day_1/const/button_style.dart';
+import 'package:day_1/const/padding.dart';
+import 'package:day_1/const/strings.dart';
 import 'package:day_1/first_section/shared/custom_appbar.dart';
 import 'package:flutter/material.dart';
 

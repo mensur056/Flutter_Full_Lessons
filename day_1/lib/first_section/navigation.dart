@@ -1,4 +1,4 @@
-import 'package:day_1/first_section/const/project_navigation.dart';
+import 'package:day_1/const/project_navigation.dart';
 import 'package:flutter/material.dart';
 
 class NavigationLearn extends StatelessWidget {
