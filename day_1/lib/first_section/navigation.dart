@@ -26,6 +26,12 @@ class NavigationLearn extends StatelessWidget {
               child: Text(title),
             ),
           ),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text(title),
+            ),
+          ),
         ],
       ),
     );

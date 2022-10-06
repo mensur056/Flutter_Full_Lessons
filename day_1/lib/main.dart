@@ -1,4 +1,4 @@
-import 'package:day_1/first_section/navigation.dart';
+import 'package:day_1/first_section/lsit_view_learn.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,16 +16,17 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
-      // ThemeData(
-      //   appBarTheme: const AppBarTheme(
-      //     iconTheme: IconThemeData(color: Colors.red),
-      //     centerTitle: true,
-      //   ),
-      // ),
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: const NavigationLearn(),
-    );
+        theme: ThemeData.dark(),
+        // ThemeData(
+        //   appBarTheme: const AppBarTheme(
+        //     iconTheme: IconThemeData(color: Colors.red),
+        //     centerTitle: true,
+        //   ),
+        // ),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        home: const ListViewLearn(
+          title: 'sds',
+        ));
   }
 }
