@@ -5,7 +5,9 @@ import 'package:day_1/first_section/package.dart';
 import 'package:flutter/material.dart';
 
 class PageViewLearn extends StatefulWidget {
-  const PageViewLearn({Key? key}) : super(key: key);
+  const PageViewLearn({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<PageViewLearn> createState() => _PageViewLearnState();
@@ -22,40 +24,50 @@ class _PageViewLearnState extends State<PageViewLearn> {
     }
   }
 
+  bool isDark = false;
+  final Color backColor = Colors.red;
+  void changeBackGround() {
+    setState(() {
+      isDark = !isDark;
+      print(backColor);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      floatingActionButton: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          InkWell(
-            onTap: () {
-              changeView(false);
-            },
-            child: const Icon(
-              Icons.chevron_left,
-              size: 50,
+        backgroundColor: isDark ? Colors.green : Colors.blue,
+        floatingActionButton: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            InkWell(
+              onTap: changeBackGround,
+              child: const Icon(Icons.add),
             ),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: () {
-              changeView(true);
-            },
-            child: const Icon(
-              Icons.chevron_right,
-              size: 50,
-              color: Colors.white,
+            InkWell(
+              onTap: () {
+                changeView(false);
+              },
+              child: const Icon(
+                Icons.chevron_left,
+                size: 50,
+              ),
             ),
-          ),
-        ],
-      ),
-      body: PageView(
-        controller: _controller,
-        children: const [ButtonLearn(), CardLearn(), KartalPackageLearn()],
-      ),
-    );
+            InkWell(
+              onTap: () {
+                changeView(true);
+              },
+              child: const Icon(
+                Icons.chevron_right,
+                size: 50,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        body: Column(
+          children: const [Text('aasd')],
+        ));
   }
 
   Container customContainer(Color colors) {
