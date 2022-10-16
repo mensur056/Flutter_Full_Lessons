@@ -1,7 +1,7 @@
-import 'package:day_1/first_section/page_view.dart';
+import 'package:day_1/second_section/changeTheme.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main(List<String> args) {
   runApp(const MyApp());
 }
 
@@ -13,12 +13,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isThemeLight = false;
+  void changeTheme() {
+    setState(() {
+      isThemeLight = !isThemeLight;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: PageViewLearn(),
-    );
+    return MaterialApp(
+        theme: isThemeLight ? ThemeData.dark() : ThemeData.light(),
+        debugShowCheckedModeBanner: false,
+        home: ChangeTheme(onPressed: changeTheme));
   }
 }
