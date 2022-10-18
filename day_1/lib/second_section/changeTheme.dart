@@ -11,7 +11,12 @@ class _ChangeThemeState extends State<ChangeTheme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: IconButton(
+          onPressed: widget.onPressed,
+          icon: const Icon(Icons.add),
+        ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
-import 'package:day_1/second_section/changeTheme.dart';
+import 'package:day_1/const/theme.dart';
+import 'package:day_1/second_section/animated.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -23,8 +24,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: isThemeLight ? ThemeData.dark() : ThemeData.light(),
+        theme: ProjectTheme().myProjectLightTheme,
+        // theme: isThemeLight ? ThemeData.dark() : ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: ChangeTheme(onPressed: changeTheme));
+        home: const AnimationLearn());
   }
 }
