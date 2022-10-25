@@ -1,5 +1,4 @@
-import 'package:day_1/const/theme.dart';
-import 'package:day_1/second_section/animated.dart';
+import 'package:day_1/second_section/dio_learn_page.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -24,9 +23,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ProjectTheme().myProjectLightTheme,
-        // theme: isThemeLight ? ThemeData.dark() : ThemeData.light(),
+        // theme: ProjectTheme().myProjectLightTheme,
+        theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        home: const AnimationLearn());
+        home: const DioLearnPage());
   }
 }
