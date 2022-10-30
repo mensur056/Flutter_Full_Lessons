@@ -26,6 +26,6 @@ class _MyAppState extends State<MyApp> {
         // theme: ProjectTheme().myProjectLightTheme,
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        home: const DioLearnPage());
+        home: const DioLearnView());
   }
 }

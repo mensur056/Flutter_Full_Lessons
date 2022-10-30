@@ -1,58 +1,76 @@
-import 'dart:io';
-
+import 'package:day_1/second_section/Api/general_dio.dart';
 import 'package:day_1/second_section/Api/my_model.dart';
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 
-class DioLearnPage extends StatefulWidget {
-  const DioLearnPage({Key? key}) : super(key: key);
+class DioLearnView extends StatefulWidget {
+  const DioLearnView({Key? key}) : super(key: key);
 
   @override
-  State<DioLearnPage> createState() => _DioLearnPageState();
+  State<DioLearnView> createState() => _DioLearnViewState();
 }
 
-class _DioLearnPageState extends State<DioLearnPage> {
+class _DioLearnViewState extends ProjectLoading<DioLearnView> {
+  List<UserModel>? item;
+  late final MyApiService myApiService;
+
   @override
   void initState() {
     super.initState();
-    bringItemFromApi();
+    myApiService = GeneralDio();
+    bringItemApi();
+    sendToApi();
+  }
+  //Basic Using
+  // Future<List<UserModel>?> fetchItemFromApi() async {
+  //   final repo = await dio.get('posts/1/comments');
+  //   if (repo.statusCode == 200) {
+  //     final value = repo.data;
+  //     if (value is List) {
+  //       item= value.map((key) => UserModel.fromJson(key)).toList();
+  //     }
+  //   }
+  //   return null;
+  // }
+
+//Advance Using
+
+  Future<void> bringItemApi() async {
+    changeWaitValue();
+    item = await myApiService.fetchItemFromApi();
+    changeWaitValue();
   }
 
-  List<MyModel>? _items;
-  bool isWait = false;
-  void waitItem() {
-    setState(() {
-      isWait = !isWait;
-    });
-  }
-
-  Future<void> bringItemFromApi() async {
-    waitItem(); //true
-    final response = await Dio().get('https://jsonplaceholder.typicode.com/posts');
-    if (response.statusCode == HttpStatus.ok) {
-      final itemData = response.data;
-      if (itemData is List) {
-        _items = itemData.map((e) => MyModel.fromJson(e)).toList();
-      }
-    }
-    waitItem(); //false
+  Future<void> sendToApi() async {
+    changeWaitValue();
+    item = await myApiService.fetchItemFromApi();
+    changeWaitValue();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(isWait ? Icons.save : Icons.stop),
+      ),
       appBar: AppBar(
-          title: isWait
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : const Text('Senin datalari geldi')),
+        title: isWait ? const Text('Senin datalarin gelir') : const Text('Senin datalarin geldi'),
+      ),
       body: ListView.builder(
-        itemCount: _items?.length ?? 0,
+        itemCount: item?.length ?? 0,
         itemBuilder: (context, index) {
-          return Card(child: Text((_items?[index].userId ?? 0).toString()));
+          return Card(child: Text(item?[index].body ?? 'Senin datalarinda bir problem oldu'));
         },
       ),
     );
+  }
+}
+
+abstract class ProjectLoading<T extends StatefulWidget> extends State<T> {
+  bool isWait = false;
+  void changeWaitValue() {
+    setState(() {
+      isWait = !isWait;
+    });
   }
 }

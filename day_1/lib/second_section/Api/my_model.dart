@@ -1,23 +1,26 @@
-class MyModel {
-  int? userId;
+class UserModel {
+  int? postId;
   int? id;
-  String? title;
+  String? name;
+  String? email;
   String? body;
 
-  MyModel({this.userId, this.id, this.title, this.body});
+  UserModel({this.postId, this.id, this.name, this.email, this.body});
 
-  MyModel.fromJson(Map<String, dynamic> json) {
-    userId = json['userId'];
+  UserModel.fromJson(Map<String, dynamic> json) {
+    postId = json['postId'];
     id = json['id'];
-    title = json['title'];
+    name = json['name'];
+    email = json['email'];
     body = json['body'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['userId'] = userId;
+    data['postId'] = postId;
     data['id'] = id;
-    data['title'] = title;
+    data['name'] = name;
+    data['email'] = email;
     data['body'] = body;
     return data;
   }
