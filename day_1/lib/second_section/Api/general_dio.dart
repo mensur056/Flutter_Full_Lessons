@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 abstract class MyApiService {
   Future<List<UserModel>?> fetchItemFromApi();
-  Future<List<UserModel>?> fetchItemFromApi1(String value);
+  Future<void> userLogin(UserModel model);
 }
 
 class GeneralDio implements MyApiService {
@@ -11,7 +11,7 @@ class GeneralDio implements MyApiService {
 
   @override
   Future<List<UserModel>?> fetchItemFromApi() async {
-    final repo = await dio.get('posts/1/comments');
+    final repo = await dio.get('posts');
     if (repo.statusCode == 200) {
       final value = repo.data;
       if (value is List) {
@@ -22,14 +22,10 @@ class GeneralDio implements MyApiService {
   }
 
   @override
-  Future<List<UserModel>?> fetchItemFromApi1(String value) async {
-    final repo = await dio.post('posts/', data: value);
-    if (repo.statusCode == 200) {
-      final value = repo.data;
-      if (value is List) {
-        return value.map((key) => UserModel.fromJson(key)).toList();
-      }
+  Future<void> userLogin(UserModel model) async {
+    final response = await dio.post('posts', data: model);
+    if (response.statusCode == 200) {
+      return response.data;
     }
-    return null;
   }
 }

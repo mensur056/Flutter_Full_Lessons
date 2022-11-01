@@ -1,27 +1,24 @@
 class UserModel {
-  int? postId;
-  int? id;
+  int? password;
+  int? age;
   String? name;
-  String? email;
-  String? body;
+  String? surname;
 
-  UserModel({this.postId, this.id, this.name, this.email, this.body});
+  UserModel({this.password, this.age, this.name, this.surname});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    postId = json['postId'];
-    id = json['id'];
-    name = json['name'];
-    email = json['email'];
-    body = json['body'];
+    password = json['userId'];
+    age = json['id'];
+    name = json['title'];
+    surname = json['body'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['postId'] = postId;
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['body'] = body;
+    data['userId'] = password;
+    data['id'] = age;
+    data['title'] = name;
+    data['body'] = surname;
     return data;
   }
 }

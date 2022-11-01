@@ -1,4 +1,4 @@
-import 'package:day_1/second_section/dio_learn_page.dart';
+import 'package:day_1/second_section/Api/dio_post_learn_view.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -26,6 +26,6 @@ class _MyAppState extends State<MyApp> {
         // theme: ProjectTheme().myProjectLightTheme,
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        home: const DioLearnView());
+        home: const DioPostLearnView());
   }
 }
