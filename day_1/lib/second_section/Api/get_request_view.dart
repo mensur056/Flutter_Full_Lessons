@@ -19,7 +19,7 @@ class _GetRequestViewState extends ProjectLoading<GetRequestView> {
   void initState() {
     super.initState();
     myApiService = GeneralDio();
-    fectFromItem();
+    fetchFromItem();
   }
 
   // Future<GetRequestModel?> fetchItemFromApi() async {
@@ -33,7 +33,7 @@ class _GetRequestViewState extends ProjectLoading<GetRequestView> {
   //   return null;
   // }
 
-  Future<void> fectFromItem() async {
+  Future<void> fetchFromItem() async {
     changeWaitValue();
     items = await myApiService.fetchFromApiWithData();
     changeWaitValue();

@@ -1,7 +1,7 @@
-import 'package:day_1/second_section/Api/get_request_view.dart';
+import 'package:day_1/second_section/Api/test_api/local_get_dio_learn.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
+void main() {
   runApp(const MyApp());
 }
 
@@ -24,8 +24,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         // theme: ProjectTheme().myProjectLightTheme,
-        theme: ThemeData.dark(),
+        theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: const GetRequestView());
+        home: const LocalGetDioLearn());
   }
 }
