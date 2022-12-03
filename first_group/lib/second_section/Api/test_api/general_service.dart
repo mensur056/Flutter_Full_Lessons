@@ -1,20 +1,21 @@
 import 'package:dio/dio.dart';
-import 'package:first_group/second_section/Api/test_api/local_model.dart';
+
+import '../test_api2/users_model.dart';
 
 abstract class ProjectService {
-  Future<List<UserModelRequest>?> fetchItemFromLocalHost();
+  Future<List<DeleteData>?> fetchItemFromLocalHost();
   bool? removeItemFromLocalHost(int id);
 }
 
 class GeneralService extends ProjectService {
   Dio dio = Dio(BaseOptions(baseUrl: 'http://localhost:3000/'));
   @override
-  Future<List<UserModelRequest>?> fetchItemFromLocalHost() async {
+  Future<List<DeleteData>?> fetchItemFromLocalHost() async {
     final response = await dio.get('users');
     if (response.statusCode == 200) {
       final userData = response.data;
       if (userData is List) {
-        return userData.map((e) => UserModelRequest.fromJson(e)).toList();
+        return userData.map((e) => DeleteData.fromJson(e)).toList();
       }
     }
     return null;

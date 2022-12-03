@@ -37,7 +37,6 @@ class _LocalPostDioState extends State<LocalPostDio> {
           TextField(controller: titleController),
           TextField(controller: colorController),
           TextField(controller: ageController),
-          TextField(controller: idController),
           const SizedBox(
             height: 40,
           ),
@@ -49,7 +48,6 @@ class _LocalPostDioState extends State<LocalPostDio> {
                     colorController.text.isNotEmpty &&
                     ageController.text.isNotEmpty) {
                   final model = UserModelRequest(
-                      id: int.tryParse(idController.text),
                       name: nameController.text,
                       surname: surnameController.text,
                       title: titleController.text,
