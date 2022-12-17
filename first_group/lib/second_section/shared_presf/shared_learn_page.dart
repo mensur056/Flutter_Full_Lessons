@@ -11,36 +11,42 @@ class SharedLearnPage extends StatefulWidget {
 class _SharedLearnPageState extends State<SharedLearnPage> {
   String name = '';
   String surname = '';
-  bool? isData;
+  bool isData = false;
   @override
   void initState() {
     super.initState();
     readData();
     readMyBoolValue();
+    print(isData);
   }
 
-  void changeName(val) {
+  void changeName(String val) {
     setState(() {
       name = val;
     });
   }
 
-  void changeSurname(val) {
+  void changeSurname(String val) {
     setState(() {
       surname = val;
     });
   }
 
+  void changeColor(bool isRed) {
+    setState(() {
+      isData = isRed;
+    });
+  }
+
   Future<void> readData() async {
     final prefs = await SharedPreferences.getInstance();
-
-    changeName(prefs.getString('username'));
-    changeSurname(prefs.getString('surname'));
+    changeName(prefs.getString('username') ?? '');
+    changeSurname(prefs.getString('surname') ?? '');
   }
 
   Future<void> readMyBoolValue() async {
     final presf = await SharedPreferences.getInstance();
-    presf.getBool('isTrue') ?? false;
+    changeColor(presf.getBool('isTrue') ?? false);
   }
 
   @override
@@ -86,13 +92,14 @@ class _SharedLearnPageState extends State<SharedLearnPage> {
                     child: const Text('Save surname'),
                   ),
                   ElevatedButton(
-                    child: const Text('sdfs'),
+                    child: const Text('color'),
                     onPressed: () async {
                       setState(() {
-                        isData = !(isData ?? true);
+                        isData = !isData;
                       });
                       final prefs = await SharedPreferences.getInstance();
-                      prefs.setBool('isTrue', isData ?? true);
+                      prefs.setBool('isTrue', isData);
+                      print(isData);
                     },
                   )
                 ],
