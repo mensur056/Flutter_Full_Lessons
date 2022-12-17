@@ -1,4 +1,4 @@
-import 'package:first_group/second_section/Api/test_api2/get_and_delete_dio.dart';
+import 'package:first_group/second_section/shared_presf/shared_learn_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,6 +26,6 @@ class _MyAppState extends State<MyApp> {
         // theme: ProjectTheme().myProjectLightTheme,
         theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: const GetAndDeleteDio());
+        home: const SharedLearnPage());
   }
 }

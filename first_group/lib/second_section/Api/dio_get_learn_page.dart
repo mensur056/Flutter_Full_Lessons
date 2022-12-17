@@ -26,6 +26,7 @@ class _DioGetLearnViewState extends ProjectLoading<DioGetLearnView> {
     changeWaitValue();
   }
 
+//Basic using
   // Future<void> fetchItemFromMyApi() async {
   //   changeWaitValue();
   //   final response = await dio.get('https://jsonplaceholder.typicode.com/posts');
