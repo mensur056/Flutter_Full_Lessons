@@ -1,3 +1,4 @@
+import 'package:first_group/third_section/extension/extension_view.dart';
 import 'package:first_group/third_section/navaigation_advance/home_view.dart';
 import 'package:first_group/third_section/navaigation_advance/login_view.dart';
 import 'package:first_group/third_section/navaigation_advance/product/rout_pages.dart';
@@ -26,12 +27,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: RoutPages.home.name,
+      initialRoute: RoutPages.extensionPage.name,
       routes: {
         RoutPages.home.name: (context) => const HomePageView(),
         RoutPages.loginPage.name: (context) => const LoginPageView(),
         RoutPages.registerPage.name: (context) => const RegisterPageView(),
-        RoutPages.categoryPage.name: (context) => const RegisterPageView()
+        RoutPages.categoryPage.name: (context) => const RegisterPageView(),
+        RoutPages.extensionPage.name: (context) => const ExtensionView()
       },
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
