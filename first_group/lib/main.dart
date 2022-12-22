@@ -1,4 +1,7 @@
-import 'package:first_group/first_section/images_page.dart';
+import 'package:first_group/third_section/navaigation_advance/home_view.dart';
+import 'package:first_group/third_section/navaigation_advance/login_view.dart';
+import 'package:first_group/third_section/navaigation_advance/product/rout_pages.dart';
+import 'package:first_group/third_section/navaigation_advance/register_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,9 +26,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // theme: ProjectTheme().myProjectLightTheme,
-        theme: ThemeData.light(),
-        debugShowCheckedModeBanner: false,
-        home: const ImagesPageLearn());
+      initialRoute: RoutPages.home.name,
+      routes: {
+        RoutPages.home.name: (context) => const HomePageView(),
+        RoutPages.loginPage.name: (context) => const LoginPageView(),
+        RoutPages.registerPage.name: (context) => const RegisterPageView(),
+        RoutPages.categoryPage.name: (context) => const RegisterPageView()
+      },
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
