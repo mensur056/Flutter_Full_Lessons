@@ -14,7 +14,7 @@ class _ExtensionViewState extends State<ExtensionView> {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
-        children: [ImagePath.tetsImage.toImage],
+        children: [ImagePath.backgroundimage.toImage],
       ),
     );
   }
